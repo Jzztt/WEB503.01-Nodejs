@@ -6,6 +6,8 @@ import { UserRouter } from "./routes/user.js";
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+
 const connectDatabase = async () => {
   try {
     await mongoose.connect("mongodb://localhost:27017/my-project");
