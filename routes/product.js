@@ -4,20 +4,14 @@ const router = express.Router();
 
 router.get("/product",ProductController.getProduct);
 
-router.get("/product/:id", (req, res) => {
-  res.send("Product Detail Page");
-});
+router.get("/product/:id",ProductController.getDetailProduct);
 
-router.post("/product", (req, res) => {
-  res.send("Product Create Page");
-});
+router.post("/product", ProductController.createProduct);
 
 router.put("/product/:id", (req, res) => {
   res.send("Product Update Page");
 });
 
-router.delete("/product/:id", (req, res) => {
-  res.send("Delete Product");
-});
+router.delete("/product/:id",ProductController.deleteProduct);
 
 export const ProductRouter = router;
