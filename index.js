@@ -16,6 +16,7 @@ const connectDatabase = async () => {
     console.log(error);
   }
 };
+
 connectDatabase();
 
 app.use('/api', ProductRouter);

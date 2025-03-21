@@ -8,9 +8,7 @@ router.get("/product/:id",ProductController.getDetailProduct);
 
 router.post("/product", ProductController.createProduct);
 
-router.put("/product/:id", (req, res) => {
-  res.send("Product Update Page");
-});
+router.put("/product/:id", ProductController.updateProduct);
 
 router.delete("/product/:id",ProductController.deleteProduct);
 
