@@ -1,4 +1,5 @@
 import Product from "../models/ProductModel.js";
+import ProductSchema from "../Schemas/PrdouctSchema.js";
 
 const getProduct = async (req, res) => {
   try {
@@ -25,6 +26,16 @@ const getProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
+    const { error } = ProductSchema.validate(req.body, { abortEarly: false });
+    // console.log(error);
+    if (error) {
+      const errors = error.details.map((detail) => detail.message);
+      return res.status(400).json({
+        success: false,
+        message: errors,
+      });
+    }
+
     // const newProduct = new Product(req.body);
     // await newProduct.save();
     const newProduct = await Product.create(req.body);
@@ -68,6 +79,7 @@ const getDetailProduct = async (req, res) => {
 };
 
 const updateProduct = async (req, res) => {
+
   const { id } = req.params;
   try {
     const product = await Product.findByIdAndUpdate(id, req.body, {
