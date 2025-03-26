@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { ProductRouter } from "./routes/product.js";
 import { UserRouter } from "./routes/user.js";
+import { AuthRouter } from "./routes/auth.js";
 
 const app = express();
 const PORT = 3000;
@@ -21,7 +22,7 @@ connectDatabase();
 
 app.use('/api', ProductRouter);
 app.use('/api', UserRouter);
-
+app.use('/',AuthRouter)
 
 
 app.listen(PORT, () => {
