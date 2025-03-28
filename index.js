@@ -22,7 +22,7 @@ connectDatabase();
 
 app.use('/api', ProductRouter);
 app.use('/api', UserRouter);
-app.use('/',AuthRouter)
+app.use('/', AuthRouter)
 
 
 app.listen(PORT, () => {
