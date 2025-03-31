@@ -73,8 +73,9 @@ const login = async (req, res) => {
 
 
   // secret key cần bảo mật nên để ở .env
-  const secretKey = "my-secret-key";
-  const token = jwt.sign({ _id: user._id, username: user.username, role: user.role }, secretKey, {
+  const {SECRET_KEY} = process.env;
+
+  const token = jwt.sign({ _id: user._id, username: user.username, role: user.role }, SECRET_KEY, {
     expiresIn: "1d",
   });
 
