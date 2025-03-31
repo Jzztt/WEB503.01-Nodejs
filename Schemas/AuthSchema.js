@@ -12,4 +12,12 @@ const RegisterSchema = Joi.object({
     })
 })
 
-export default RegisterSchema;
+const LoginSchema = Joi.object({
+    email: RegisterSchema.extract('email'),
+    password: RegisterSchema.extract('password'),
+})
+
+export const AuthSchema = {
+    RegisterSchema,
+    LoginSchema
+};
